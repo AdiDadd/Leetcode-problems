@@ -11,19 +11,22 @@ bool isValidSudoku(char** board, int boardSize, int* boardColSize) {
         for (int c = 0; c < SHAPE; c++) {
 
             if (board[r][c] == EMPTY) 
-                continue;
+            continue;
 
             int val = 1 << (board[r][c] - '0');
 
-            if (row[r] & val) return false;
+            if (row[r] & val) 
+            return false;
             else row[r] += val;
 
-            if (col[c] & val) return false;
+            if (col[c] & val) 
+            return false;
             else col[c] += val;
 
             int gridIndex = (r / GRID) * GRID + (c / GRID);
 
-            if (grid[gridIndex] & val) return false;
+            if (grid[gridIndex] & val) 
+            return false;
             else grid[gridIndex] += val;
         }
     }
